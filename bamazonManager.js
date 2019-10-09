@@ -29,7 +29,7 @@ function manager() {
         } else if (input.choices === 'Add to Inventory') {
             addItems();
         } else if (input.choices === 'Add New Product') {
-            addProduct();
+            createProduct();
         } else if (input.choices === 'Exit') {
             connection.end();
         }
@@ -161,6 +161,49 @@ function addItems() {
                 };
             });
         });
+    });
+};
+
+function createProduct() {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            name: 'product_name',
+            message: 'Please enter the name of an item.',
+        },
+        {
+            type: 'input',
+            name: 'department_name',
+            message: 'What department is it in?',
+        },
+        {
+            type: 'input',
+            name: 'price',
+            message: 'How expensive is it?',
+            filter: Number
+        },
+        {
+            type: 'input',
+            name: 'stock_quantity',
+            message: 'How many would you like to add?',
+            filter: Number
+        }
+    ]).then(function (input) {
+
+        connection.query("INSERT INTO products SET ?",
+            {
+                product_name: input.product_name,
+                department_name: input.department_name,
+                price: input.price,
+                stock_quantity: input.stock_quantity
+            }, function (err, data) {
+                if (err) throw err;
+
+                console.log("New item has been added.");
+                console.log("__________________________________________________________________________\n");
+                manager();
+            });
     });
 };
 
