@@ -19,7 +19,7 @@ function displayItems() {
         if (err) throw err;
 
         console.log("Current Inventory: ");
-        console.log("__________________________________________________________________________\n");
+        console.log("_________________________________________________________________________________\n");
 
         var product = "";
         for (var i = 0; i < data.length; i++) {
@@ -32,9 +32,8 @@ function displayItems() {
             product += "Price: $" + data[i].price;
 
             console.log(product);
+            console.log("_________________________________________________________________________________\n");
         }
-
-        console.log("__________________________________________________________________________\n");
 
         promptUser();
     })

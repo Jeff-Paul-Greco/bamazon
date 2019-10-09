@@ -44,7 +44,7 @@ function displayItems() {
         if (err) throw err;
 
         console.log("Current Inventory: ");
-        console.log("__________________________________________________________________________\n");
+        console.log("_________________________________________________________________________________\n");
 
         var product = "";
         for (var i = 0; i < data.length; i++) {
@@ -57,9 +57,8 @@ function displayItems() {
             product += "Quantity: " + data[i].stock_quantity;
 
             console.log(product);
+            console.log("_________________________________________________________________________________\n");
         }
-
-        console.log("__________________________________________________________________________\n");
 
         manager();
     })
@@ -73,7 +72,7 @@ function lowInventory() {
         if (err) throw err;
 
         console.log("Low Inventory: ");
-        console.log("__________________________________________________________________________\n");
+        console.log("_________________________________________________________________________________\n");
 
         var product = "";
         for (var i = 0; i < data.length; i++) {
@@ -86,9 +85,8 @@ function lowInventory() {
             product += "Quantity: " + data[i].stock_quantity;
 
             console.log(product);
+            console.log("_________________________________________________________________________________\n");
         }
-
-        console.log("__________________________________________________________________________\n");
 
         manager();
     })
@@ -101,7 +99,7 @@ function addItems() {
         if (err) throw err;
 
         console.log("Current Inventory: ");
-        console.log("__________________________________________________________________________\n");
+        console.log("_________________________________________________________________________________\n");
 
         var product = "";
         for (var i = 0; i < data.length; i++) {
@@ -114,9 +112,8 @@ function addItems() {
             product += "Quantity: " + data[i].stock_quantity;
 
             console.log(product);
+            console.log("_________________________________________________________________________________\n");
         }
-
-        console.log("__________________________________________________________________________\n");
 
         inquirer.prompt([
             {
@@ -155,7 +152,7 @@ function addItems() {
                         if (err) throw err;
 
                         console.log("Stock has been updated.");
-                        console.log("__________________________________________________________________________\n");
+                        console.log("_________________________________________________________________________________\n");
                         manager();
                     });
                 };
@@ -201,7 +198,7 @@ function createProduct() {
                 if (err) throw err;
 
                 console.log("New item has been added.");
-                console.log("__________________________________________________________________________\n");
+                console.log("_________________________________________________________________________________\n");
                 manager();
             });
     });
